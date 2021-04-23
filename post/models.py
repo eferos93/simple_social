@@ -26,7 +26,7 @@ class Post(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('post:single', kwargs={'username': self.user.name,
+        return reverse('post:single', kwargs={'username': self.user.get_username(),
                                               'pk': self.pk}
                        )
 

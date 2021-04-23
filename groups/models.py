@@ -40,7 +40,7 @@ class GroupMember(models.Model):
     user = models.ForeignKey(User, related_name='user_groups', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.name
+        return self.user.get_username()
 
     class Meta:
         unique_together = ['group', 'user']
