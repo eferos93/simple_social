@@ -1,15 +1,15 @@
-{% extends '../post/templates/post/post_base.html' %}
+{% extends 'post/post_base.html' %}
 
 {% block prepost %}
     <div class="col-md-4">
-        <h1>@{{ post_user.username }}</h1>
+        <h1>@{{ post.user.username }}</h1>
     </div>
 {% endblock %}
 
 {% block post_content %}
     <div class="col-md-8">
     {% for post in post_list %}
-        {% include '../post/templates/post/_post.html' %}
+        {% include 'post/_post.html' %}
     {% endfor %}
     </div>
 {% endblock %}

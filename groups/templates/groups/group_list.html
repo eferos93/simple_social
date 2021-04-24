@@ -1,10 +1,10 @@
-{% extends '../groups/templates/groups/group_base.html' %}
+{% extends 'groups/group_base.html' %}
 {% block pregroup %}
 <div class="col-md-4">
     <div class="content">
         {% if user.is_authenticated %}
             <h2>Welcome back!
-                <a href="{% url 'post:for_user' username=user.username %}">
+                <a href="{% url 'posts:for_user' username=user.username %}">
                     @{{ user.username }}
                 </a>
             </h2>

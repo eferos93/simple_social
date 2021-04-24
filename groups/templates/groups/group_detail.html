@@ -1,4 +1,4 @@
-{% extends '../groups/templates/groups/group_base.html' %}
+{% extends 'groups/group_base.html' %}
 {% block pregroup %}
     <h1>
     {# group is lowercased of model name    #}
@@ -8,12 +8,12 @@
 
     <div class="content">
         {% if user in group.members.all %}
-            <a href="{% url 'group:leave' slug=group.slug %}"
+            <a href="{% url 'groups:leave' slug=group.slug %}"
                class="btn btn-lg btn-fill btn-warning">
                 <span class="glyphicon glyphicon-remove-circle"></span>Leave
             </a>
         {% else %}
-            <a href="{% url 'group:join' slug=group.slug %}"
+            <a href="{% url 'groups:join' slug=group.slug %}"
                class="btn btn-lg btn-fill btn-warning">
                 <span class="glyphicon glyphicon-ok-circle"></span>Join
             </a>
@@ -27,7 +27,7 @@
             <h2>No posts in this group ye.t</h2>
         {% else %}
             {% for post in group.posts.all %}
-                 {% include "../post/templates/post/_post.html" %}
+                 {% include "post/_post.html" %}
             {% endfor %}
         {% endif %}
     </div>
